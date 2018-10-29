@@ -17,4 +17,20 @@
 </nav>
 </header>
 
-<p>Salut <%=params[:id]%>! J'espère que tu es aussi mal que nous! Ici c'est notre super site de potins, il est chouette, non ?</p>
+<section>
+  <p>Salut <%=params[:id]%>! J'espère que tu es aussi mal que nous! Ici c'est notre super site de potins, il est chouette, non ?</p>
+
+  <% @gossip.each do |gossip| %>
+    <div class = "card" style = "width: 25rem;">
+      <div class = "card-body">
+        <h6 class = "text-success">Gossip n°: <%= gossip.id%></h6>
+        <p class = "card-text">
+          L'auteur: <%= gossip.author %><br/>
+          Le contenu :<%= gossip.content %><br/>
+          <a href="/gossip/<%= gossip.id %>" class="card-link">Lien ici</a>
+        </p>
+      </div>
+    </div>
+    <br/>
+ <% end %>
+</section>
