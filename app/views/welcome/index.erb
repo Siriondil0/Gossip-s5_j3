@@ -18,3 +18,10 @@
 </header>
 
 <p>Salut! J'espère que tu es aussi mal que nous! Ici c'est notre super site de potins, il est chouette, non ?</p>
+
+<% @gossip.each do |gossip| %>
+  <p>
+     <a href="/gossip/<%= gossip.id %>">L'auteur: <%= gossip.author %> &nbsp; Le contenu :<%= gossip.content %></a>
+    <br/>
+    </p>
+<% end %>
