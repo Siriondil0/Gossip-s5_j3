@@ -1,5 +1,5 @@
 <html>
-  <head>
+  <header class="flex-fill">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="/welcome">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,19 +10,22 @@
           <li class="nav-item active">
             <a class="nav-link" href="/team">Team <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="/contact">Contact</a>
           </li>
         </ul>
       </div>
     </nav>
-  </head>
-  <body>
-    <h2>Voici le potin n°<%= @good_gossip.id%></h2>
-    <p>Son auteur est <%= @good_gossip.author %></p>
-    <p>Il contient <%= @good_gossip.content %></p>
-    <p>Date :  <%= @good_gossip.date %></p>
-    <br/>
-    
+  </header>
+
+  <body class="bg-secondary text-light d-flex align-items-stretch flex-wrap">
+    <div class="container-fluid">
+      <br/>
+      <h2>Voici le potin n°<%= @good_gossip.id%></h2>
+      <p>Son auteur est <%= @good_gossip.author %></p>
+      <p>Il contient "<%= @good_gossip.content %>"</p>
+      <p>Date de création :  <%= @good_gossip.date %></p>
+      <br/>
+    </div>
   </body>
 </html>
