@@ -28,7 +28,8 @@
     <div class="container-fluid">
       <br/>
       <h2>Voici le potin n°<%= @good_gossip.id%></h2>
-      <p>Son auteur est <%= @good_gossip.author %></p>
+      <p>Son auteur est <%= @good_gossip.user.first_name %> <%= @good_gossip.user.last_name %></p>
+      <p>Il a pour titre <%= @good_gossip.title %></p>
       <p>Il contient "<%= @good_gossip.content %>"</p>
       <p>Date de création :  <%= @good_gossip.date %></p>
       <br/>

@@ -1,0 +1,52 @@
+<header class="flex-fill">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/home">Home</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="/welcome">Index des potins <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="/gossip/new"> Creation de potin <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="/team">Team <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="/contact">Contact</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<body class="bg-secondary text-light align-items-stretch ">
+	<div class="container-fluid">
+		<h3>Pour inscrire votre potin, veuillez le rentrer ci-dessous</h3>
+		<div class="form-row">
+
+		<%= form_for @gossip, url: {action: "create"}, html: {class: "col-md-6"} do |f| %>
+			
+			<div class="col-md-6">
+				<div class="form-group">
+					<%= f.label "Le titre de votre gossip"%>
+					<%= f.text_field :title, placeholder: 'Ici, on fornique', class: "form-control" %>
+				</div>			
+			</div> 
+			
+
+			<div class="col-md-12 form-group">
+				<%= f.label "Le contenu de votre gossip"%>
+				<%= f.text_area :content, size: "30x3", placeholder: 'Haha, vous voudriez bien savoir hein?', class: "form-control" %>
+			</div>
+
+			<div class="col-md-12 form-group bg-info text-light">
+				<%= f.submit "Valider", class: "btn btn-outline-success col-md-12 	text-light" %>
+			</div>
+		<% end %>
+		</div>
+	</div>
+</body>

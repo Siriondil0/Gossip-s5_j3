@@ -1,4 +1,4 @@
-<header class="flex-fill">
+<header class="align-items-stretch flex-fill">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/home">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,28 +22,8 @@
     </div>
   </nav>
 </header>
-
-<section>
-  <div class="container-fluid bg-secondary">
-    <div class= "text-light  d-flex align-content-end flex-wrap ">
-      <p class="p-6"><br/>Salut ! Ici c'est notre super site de potins, il est chouette, non ?<br/></p>
-    </div>
-    <div class="container-fluid d-flex align-content-between justify-content-between flex-wrap">
-      <% @gossip.each do |gossip| %>
-        <div class = "card" style = "width: 25rem;">
-          <div class="bg-light text-dark">
-            <div class = "card-body">
-              <h6 class = "text-success">Gossip n°: <%= gossip.id%></h6>
-              <p class = "card-text">
-                L'auteur: <%= gossip.author %><br/>
-                Le contenu :<%= gossip.content %><br/>
-                <a href="/gossip/<%= gossip.id %>" class="card-link">Lien ici</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <br/>
-      <% end %>
-    </div>
+<body class="bg-secondary text-light d-flex align-items-stretch flex-wrap">
+  <div class="bg-secondary text-light d-flex align-items-stretch flex-wrap container-fluid">
+    <h4><br/>Bientôt un formulaire de contact :)</h4>
   </div>
-</section>
+</body>

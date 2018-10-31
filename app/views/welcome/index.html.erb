@@ -1,26 +1,31 @@
 <header class="flex-fill">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/welcome">Home</a>
+    <a class="navbar-brand" href="/home">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
+          <a class="nav-link" href="/welcome">Index des potins <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/gossip/new"> Creation de potin <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
           <a class="nav-link" href="/team">Team <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/contact">Contact</a>
+        <li class="nav-item active">
+          <a class="nav-link" href="/contact">Contact</a>
         </li>
       </ul>
     </div>
   </nav>
 </header>
-
-<section>
-  <div class="container-fluid bg-secondary ">
+<body class="bg-secondary text-light d-flex align-items-stretch flex-wrap">
+  <section class="container-fluid">
     <div class= "text-light  d-flex align-content-end flex-wrap ">
-      <p class="p-6"><br/>Salut <%=@my_name_param.capitalize%>! Ici c'est notre super site de potins, il est chouette, non ?<br/></p>
+      <p class="p-6"><br/>Salut ! Ici c'est notre super index des potins, il est chouette, non ?<br/></p>
     </div>
     <div class="container-fluid d-flex align-content-between justify-content-between flex-wrap">
       <% @gossip.each do |gossip| %>
@@ -29,14 +34,16 @@
             <div class = "card-body">
               <h6 class = "text-success">Gossip n°: <%= gossip.id%></h6>
               <p class = "card-text">
-                L'auteur: <%= gossip.author %><br/>
+                L'auteur: <%= gossip.user.first_name %><br/>
+                Le titre : <%= gossip.title%><br/>
                 Le contenu :<%= gossip.content %><br/>
                 <a href="/gossip/<%= gossip.id %>" class="card-link">Lien ici</a>
               </p>
             </div>
           </div>
         </div>
-      <% end %>
+        <br/>
+      <% end %> 
     </div>
-  </div>
-</section>
+  </section>
+</body>
