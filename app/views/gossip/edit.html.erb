@@ -1,0 +1,69 @@
+<header class="flex-fill">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="/home">Home</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="/gossip">Index des potins <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="/gossip/new"> Creation de potin <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="/team">Team <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item active">
+					<a class="nav-link" href="/contact">Contact</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<body class="bg-secondary text-light d-flex align-items-stretch flex-wrap">
+	<div class="container-fluid">
+		<h3><br/>Veuillez remplir le formulaire suivant pour éditer votre potin</h3>
+		<form  class= "col-md-6" action="/gossip/uptade" method="POST">
+			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<label for="first_name">Nouveau prénom de l'auteur</label>
+					<input class="form-control" type="text" name="first_name" placeholder="jean">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="last_name">Nouveau nom de l'auteur</label>
+					<input class="form-control" type="text" name="last_name" placeholder="dupont">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="email">Nouvel email de l'auteur</label>
+					<input class="form-control" type="text" name="email" placeholder="jean.dupont@mail.com">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="city">Nouvelle ville de l'auteur</label>
+					<input class="form-control" type="text" name="city" placeholder="Marseille">
+				</div>
+			</div>
+
+			<div class="form-row ">
+				<div class="form-group col-md-12">
+					<label for="city">Nouveau titre du potin</label>
+					<input class="form-control" type="text" name="city" placeholder="On ne fornique plus">
+				</div>
+			</div>
+			
+			<div class="form-row flex-column">	
+				<div class="form-group col-md-12">
+					<label for="bio">Nouveau contenu du potin</label>
+					<textarea class="form-control" rows="3" name="bio" placeholder="Vous savoir quoi de plus? Voyeurs !"></textarea>
+				</div>
+
+				<div class="form-group col-md-12  align-items-stretch ">
+					<button type="submit" class="btn-block 	btn btn-outline-success bg-light" >Valider</button>
+				</div>
+			</div>
+		</form>
+	</div> 	
+</body>

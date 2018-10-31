@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="/welcome">Index des potins <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/gossip">Index des potins <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="/gossip/new"> Creation de potin <span class="sr-only">(current)</span></a>
@@ -22,7 +22,7 @@
       </ul>
     </div>
   </nav>
-</header>
+  </header>
 
   <body class="bg-secondary text-light d-flex align-items-stretch flex-wrap">
     <div class="container-fluid">
@@ -32,6 +32,8 @@
       <p>Il a pour titre <%= @good_gossip.title %></p>
       <p>Il contient "<%= @good_gossip.content %>"</p>
       <p>Date de création :  <%= @good_gossip.date %></p>
+      <div class= "flex-wrap" >
+      <a href="/gossip/<%= @good_gossip.id%>/edit" class="card-link">Editer ici</a>
       <br/>
     </div>
   </body>

@@ -1,4 +1,13 @@
 class GossipController < ApplicationController
+  
+  def index
+    @gossip = Gossip.all
+  end
+  def index_perso
+    @my_name_param = params[:id]
+    @gossip = Gossip.all
+  end
+  
   def show
     my_name_param = params[:id]
     puts my_name_param
@@ -20,6 +29,19 @@ class GossipController < ApplicationController
     url="/gossip/" + @gossip.id.to_s
     puts url
     redirect_to(url)
+  end
+
+  def edit
+    my_name_param = params[:id]
+    puts my_name_param
+    @gossip=Gossip.all
+    @good_gossip=@gossip[my_name_param.to_i-1]
+  end
+  
+  def uptade
+  end
+
+  def destroy 
   end
   
   
