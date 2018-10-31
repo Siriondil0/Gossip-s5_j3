@@ -23,27 +23,16 @@
   </nav>
 </header>
 
-<section>
-  <div class="container-fluid bg-secondary">
+<body>
+  <div class="container-fluid align-items-stretch bg-secondary">
     <div class= "text-light  d-flex align-content-end flex-wrap ">
-      <p class="p-6"><br/>Salut ! Ici c'est notre super site de potins, il est chouette, non ?<br/></p>
-    </div>
-    <div class="container-fluid d-flex align-content-between justify-content-between flex-wrap">
-      <% @gossip.each do |gossip| %>
-        <div class = "card" style = "width: 25rem;">
-          <div class="bg-light text-dark">
-            <div class = "card-body">
-              <h6 class = "text-success">Gossip n°: <%= gossip.id%></h6>
-              <p class = "card-text">
-                L'auteur: <%= gossip.author %><br/>
-                Le contenu :<%= gossip.content %><br/>
-                <a href="/gossip/<%= gossip.id %>" class="card-link">Lien ici</a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <br/>
-      <% end %>
+      <div class="center jumbotron bg-secondary">
+        <h1>Bienvenue !</h1>
+          <h3>
+            Ici, tu peux retrouver les moussaillons 🎓
+          </h3>
+        <%= link_to "Enregistre-toi !", '#', class: "btn btn-lg btn-primary" %>
+      </div>
     </div>
   </div>
-</section>
+</body>

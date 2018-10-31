@@ -1,12 +1,18 @@
 <header class="flex-fill">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/welcome">Home</a>
+    <a class="navbar-brand" href="/home">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <li class="nav-item active">
+          <a class="nav-link" href="/welcome">Index des potins <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/gossip/new"> Creation de potin <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
           <a class="nav-link" href="/team">Team <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
@@ -16,6 +22,7 @@
     </div>
   </nav>
 </header>
+
 <body class="bg-secondary text-light d-flex align-items-stretch flex-wrap">
   <div class="container-fluid">
     <br/>

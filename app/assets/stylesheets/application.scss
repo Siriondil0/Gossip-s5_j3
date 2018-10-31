@@ -15,4 +15,7 @@
  */
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
+body{
+    margin-top: 50px !important;
+}
 @import "bootstrap";
