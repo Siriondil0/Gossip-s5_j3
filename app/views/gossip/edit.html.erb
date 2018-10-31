@@ -26,7 +26,8 @@
 <body class="bg-secondary text-light d-flex align-items-stretch flex-wrap">
 	<div class="container-fluid">
 		<h3><br/>Veuillez remplir le formulaire suivant pour éditer votre potin</h3>
-		<form  class= "col-md-6" action="/gossip/uptade" method="POST">
+		<form  class= "col-md-6" action="/gossip/<%= @gossip.id %>" method="POST">
+			<input name="_method" type="hidden" value="patch" />
 			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 			<div class="form-row">
 				<div class="form-group col-md-6">
@@ -42,22 +43,26 @@
 					<input class="form-control" type="text" name="email" placeholder="jean.dupont@mail.com">
 				</div>
 				<div class="form-group col-md-6">
-					<label for="city">Nouvelle ville de l'auteur</label>
+					<label for="city">Nouvelle ville de l'auteur	</label>
 					<input class="form-control" type="text" name="city" placeholder="Marseille">
+				</div>
+				<div class="form-group col-md-12">
+					<label for="postal">Code postal de la ville</label>
+					<input class="form-control" type="text" name="postal" placeholder="13000">
 				</div>
 			</div>
 
 			<div class="form-row ">
 				<div class="form-group col-md-12">
-					<label for="city">Nouveau titre du potin</label>
-					<input class="form-control" type="text" name="city" placeholder="On ne fornique plus">
+					<label for="title">Nouveau titre du potin</label>
+					<input class="form-control" type="text" name="title" placeholder="On ne fornique plus">
 				</div>
 			</div>
 			
 			<div class="form-row flex-column">	
 				<div class="form-group col-md-12">
-					<label for="bio">Nouveau contenu du potin</label>
-					<textarea class="form-control" rows="3" name="bio" placeholder="Vous savoir quoi de plus? Voyeurs !"></textarea>
+					<label for="content">Nouveau contenu du potin</label>
+					<textarea class="form-control" rows="3" name="content" placeholder="Vous savoir quoi de plus? Voyeurs !"></textarea>
 				</div>
 
 				<div class="form-group col-md-12  align-items-stretch ">

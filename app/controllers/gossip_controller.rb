@@ -1,18 +1,19 @@
 class GossipController < ApplicationController
   
   def index
-    @gossip = Gossip.all
+    @gossip =Gossip.order(:id) 
+
   end
   def index_perso
     @my_name_param = params[:id]
-    @gossip = Gossip.all
+    @gossip_all = Gossip.order(:id) 
   end
   
   def show
     my_name_param = params[:id]
     puts my_name_param
     @gossip=Gossip.all
-    @good_gossip=@gossip[my_name_param.to_i-1]
+    @good_gossip = Gossip.find(params[:id])
   end
 
   def new
@@ -27,21 +28,71 @@ class GossipController < ApplicationController
       @gossip = Gossip.create!(user: @u, title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
     # end
     url="/gossip/" + @gossip.id.to_s
-    puts url
     redirect_to(url)
   end
 
   def edit
-    my_name_param = params[:id]
-    puts my_name_param
-    @gossip=Gossip.all
-    @good_gossip=@gossip[my_name_param.to_i-1]
+    @gossip = Gossip.find(params[:id])
+    @user = User.new
+    @city_user = City.new
   end
   
-  def uptade
+  def update
+    @gossip = Gossip.find(params[:id])
+    # @city_all.each do |city|
+    #   if city_exist(city, params[:postal])
+    #     @city_user = city_exist(city, params[:postal])
+    #   end
+    # end
+    # @user_all.each do |user|
+    #   if user_exist(user, params[:first_name], params[:last_name], params[:email])
+    #     @user_here = user_exist(user, params[:first_name], params[:last_name], params[:email])
+    #   end
+    # end
+    # # différends cas suivant si l'user existe déjà, ou si la ville existe déjà
+    # if @user_here
+    #   if @city_user
+    #     if @user_here.city_id == @city_user.id
+    #       @gossip = @gossip.uptade_attributes(user: @user_here, title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
+    #     else
+    #       @user_here = @user_here.update_attributes(city: @city_user)
+    #       @gossip = @gossip.uptade_attributes(user: @user_here, title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
+    #     end
+    #   end
+    # elsif @city_user
+    #   @user_here = User.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], city: @city_user)
+    #   @gossip = @gossip.update_attributes(user: @user_here, title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
+    # else
+    puts "moi"
+    @city_user = City.create!( name: params[:city], postal_code: params[:postal]) 
+    puts @city_user
+    puts "moi"
+    @user = User.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], city: @city_user)
+    puts @user
+    puts "moi"
+    @gossip.update_attributes!(user: @user, title: params[:title], content: params[:content], date: Time.now)
+    
+    url="/gossip/" + (@gossip.id-1).to_s
+    redirect_to(url)
   end
 
+  # def city_exist(city,postal)
+  #   if city.postal_code == postal
+  #     return city
+  #   end
+  # end
+
+  # def user_exist (user, first_name, last_name,email)
+  #   if user.first_name == first_name && user.last_name == last_name && user.email == email
+  #     return user
+  #   end
+  # end
+
+
   def destroy 
+    @gossip = Gossip.find(params[:id])
+    @gossip.destroy
+    redirect_to("/gossip")
   end
   
   

@@ -24,17 +24,25 @@
   </nav>
   </header>
 
-  <body class="bg-secondary text-light d-flex align-items-stretch flex-wrap">
-    <div class="container-fluid">
+  <body class="bg-secondary text-light d-flex align-items-stretch flex-wrap col-md-24">
+    <div class="container-fluid col-md-12">
       <br/>
       <h2>Voici le potin n°<%= @good_gossip.id%></h2>
       <p>Son auteur est <%= @good_gossip.user.first_name %> <%= @good_gossip.user.last_name %></p>
       <p>Il a pour titre <%= @good_gossip.title %></p>
       <p>Il contient "<%= @good_gossip.content %>"</p>
       <p>Date de création :  <%= @good_gossip.date %></p>
-      <div class= "flex-wrap" >
-      <a href="/gossip/<%= @good_gossip.id%>/edit" class="card-link">Editer ici</a>
+      <div class="container-fluid ">
+        <div class= "justify-content-between " >
+          <a href="/gossip" class="card-link">Retour à l'accueil </a>
+          <a href="/gossip/<%= @good_gossip.id%>/edit" class="card-link">Editer le gossip</a>
+        </div>  
+        <br/> 
+        <br/>
+        <div class = " pl-5 text-warning">
+          <%= link_to 'Détruire le gossip', @good_gossip, data: {:confirm => 'Are you sure?'}, :method => :delete %>
+        </div>
       <br/>
-    </div>
+      </div>
   </body>
 </html>
