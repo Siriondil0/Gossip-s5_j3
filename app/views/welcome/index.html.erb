@@ -34,7 +34,7 @@
             <div class = "card-body">
               <h6 class = "text-success">Gossip n°: <%= gossip.id%></h6>
               <p class = "card-text">
-                L'auteur: <%= gossip.user.first_name %><br/>
+                L'auteur: <%= gossip.user.first_name %> <%= gossip.user.last_name %><br/>
                 Le titre : <%= gossip.title%><br/>
                 Le contenu :<%= gossip.content %><br/>
                 <a href="/gossip/<%= gossip.id %>" class="card-link">Lien ici</a>

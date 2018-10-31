@@ -14,8 +14,8 @@ class GossipController < ApplicationController
     # if params[:gossip][:user] 
     #   @gossip = Gossip.create!(user: params[:gossip][:user], title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
     # else 
-      anonymus=User.new(first_name: "Anonymus").save
-      @gossip = Gossip.create!(user: anonymus, title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
+      @u=User.create!(city:City.first, first_name: "Ano", last_name: "Nimus", email: "ano.nimus@anomymus.com")
+      @gossip = Gossip.create!(user: @u, title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
     # end
     url="/gossip/" + @gossip.id.to_s
     puts url
