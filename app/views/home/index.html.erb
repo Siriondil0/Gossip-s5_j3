@@ -7,6 +7,8 @@
 <div class="center jumbotron bg-secondary">       
   <% if @current_user %>
     <h1>Bienvenue <%= @current_user.first_name %> !</h1>
+    <%= link_to "Déconnexion", '/home', method: :post, class: "btn btn-lg btn-primary" %>
+
   <% else %>    
     <h1>Bienvenue visiteur anonyme!</h1>
       <h3>

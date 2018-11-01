@@ -20,4 +20,11 @@ class HomeController < ApplicationController
       redirect_to "/home/login"
     end
   end
+
+  def deconnect
+    session[:user_id] = nil
+    flash[:info] = "User déconnecté"
+    redirect_to "/home"
+  end
+
 end

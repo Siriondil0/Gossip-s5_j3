@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/home', to: 'home#index'
   get '/home/login',to: 'home#login'
   post '/home/login',to: 'home#check'
+  post '/home', to: 'home#deconnect'
   resources :gossip
   resources :home
   post '/gossip/comment', to: "comment#create"
