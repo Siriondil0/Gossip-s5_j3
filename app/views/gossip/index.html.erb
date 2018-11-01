@@ -12,13 +12,15 @@
             <div class = "card-body">
               <h6 class = "text-success">Gossip n°: <%= gossip.id%></h6>
               <p class = "card-text">
-                L'auteur: <%= gossip.user.first_name %> <%= gossip.user.last_name %><br/>
-                Le titre : <%= gossip.title%><br/>
-                Le contenu :<%= gossip.content %>
+                Ecrit par: <%= gossip.user.first_name %> <%= gossip.user.last_name %><br/>
+                Titre : <%= gossip.title%><br/>
+                Contenu : <%= gossip.content %><br/>
+                Nombre de commentaire : <%=gossip.comments.count%>
               </p>
               <p class= "flex-wrap">
                 <a href="/gossip/<%= gossip.id %>" class="card-link">Lien vers le potin ici</a> 
-                <a href="/gossip/<%= gossip.id%>/edit" class="card-link">Editer le potin ici</a>           
+                <a href="/gossip/<%= gossip.id%>/edit" class="card-link">Editer le potin ici</a>
+
               </p>
             </div>
           </div>

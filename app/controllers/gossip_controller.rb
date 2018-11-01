@@ -10,10 +10,16 @@ class GossipController < ApplicationController
   end
   
   def show
-    my_name_param = params[:id]
-    @comment = Comment.order(:id)
-    @good_comment = Comment.new
+    @good_coms = []
     @good_gossip = Gossip.find(params[:id])
+    @comment = Comment.order(:id)
+    @comment.each do |comment|
+      if comment.commentable == @good_gossip
+        @good_coms << comment
+      end
+    end
+    @good_comment = Comment.new
+    
   end
 
   def new
@@ -63,13 +69,8 @@ class GossipController < ApplicationController
     #   @user_here = User.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], city: @city_user)
     #   @gossip = @gossip.update_attributes(user: @user_here, title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
     # else
-    puts "moi"
     @city_user = City.create!( name: params[:city], postal_code: params[:postal]) 
-    puts @city_user
-    puts "moi"
     @user = User.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], city: @city_user)
-    puts @user
-    puts "moi"
     @gossip.update_attributes!(user: @user, title: params[:title], content: params[:content], date: Time.now)
     
     url="/gossip/" + (@gossip.id-1).to_s
