@@ -2,21 +2,23 @@
 <%= render "shared/header" %>
 
   <body class="bg-secondary text-light d-flex align-items-stretch flex-wrap col-md-24">
-  <div class = "container-fluid flex-wrap col-md-12">
+    
+    
+    <div class = "container-fluid col-md-12">
+    <div class = "row">
+  
     <div class="container-fluid col-md-6">
+      <br/>
       <br/>
       <h2>Voici le potin n°<%= @good_gossip.id%></h2>
       <p>Son auteur est <%= @good_gossip.user.first_name %> <%= @good_gossip.user.last_name %></p>
       <p>Il a pour titre <%= @good_gossip.title %></p>
       <p>Il contient "<%= @good_gossip.content %>"</p>
       <p>Date de création :  <%= @good_gossip.date %></p>
-      <div class="container-fluid ">
-        <div class= "justify-content-between " >
+      <div class="container-fluid col-md-12">
+        <div class= "justify-content-between col-md-12" >
           <a href="/gossip" class="card-link">Retour à l'accueil </a>
           <a href="/gossip/<%= @good_gossip.id%>/edit" class="card-link">Editer le gossip</a>
-        </div>  
-        <br/> 
-        <div class = " pl-5 text-warning">
           <%= link_to 'Détruire le gossip', @good_gossip, data: {:confirm => 'Are you sure?'}, :method => :delete %>
         </div>
         <br/>
@@ -24,9 +26,11 @@
       <br/>
       <br/>
     </div>
-
+  
     <div class = "container-fluid col-md-6 flex-row">
-      <h3>Pour inscrire votre commentaire, veuillez le rentrer ci-dessous</h3>
+      <br/>
+      <br/>
+      <h4>Inscrivez votre commentaire ci-dessous</h3>
 		  <div class="form-row">
 		    <%= form_for @good_comment, :url => "/comment", html: {class: "col-md-6"} do |f| %>
 			    <%=hidden_field_tag "gossip_id", @good_gossip.id%>			
@@ -40,25 +44,28 @@
 			    </div>
 		    <% end %>
       </div>
+      </div> 
       <% @good_coms.each do |comment| %>
         <div class = "card" style = "width: (12rem);">
           <div class="bg-light text-dark">
             <div class = "card-body">
-              <h6 class = "text-success">Comment n°: <%= comment.id%></h6>
-              <p class = "card-text">
-                L'auteur: <%= comment.user.first_name %> <%= comment.user.last_name %><br/>
-                Le contenu :<%= comment.content %>
-              </p>
+              <h6 class = "card-text">
+                <small>L'auteur: <%= comment.user.first_name %> <%= comment.user.last_name %></small>
+                <br/>
+                <%= comment.content %>
+              </h6>
+              <br/>
               <p class= "flex-wrap">
-                <a href="/comment/<%= comment.id%>/edit" class="card-link">Editer le commentaire ici</a>           
+                <a href="/comment/<%= comment.id%>/edit" class="card-link"><small>Editer le commentaire ici</small></a>           
               </p>
             </div>
           </div>
         </div>
         <br/>
       <% end %> 
-      
     </div>
+     
+  </div>
   </div>
   </body>
 </html>
