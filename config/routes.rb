@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :registration
   resources :gossip
   resources :home
+  post '/gossip/comment', to: "comment#create"
+  resources :comment  
 end
