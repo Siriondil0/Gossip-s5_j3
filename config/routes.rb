@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/contact', to: "contact#show"  
   get '/team', to: "team#index"
   resources :registration
+  get '/home', to: 'home#index'
+  get '/home/login',to: 'home#login'
+  post '/home/login',to: 'home#check'
   resources :gossip
   resources :home
   post '/gossip/comment', to: "comment#create"

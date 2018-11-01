@@ -1,15 +1,22 @@
 <%= render "shared/header" %>
 
 <body class="bg-secondary text-light d-flex align-items-stretch flex-wrap">
-  <div class="container-fluid align-items-stretch bg-secondary">
-    <div class= "text-light  d-flex align-content-end flex-wrap ">
-      <div class="center jumbotron bg-secondary">
-        <h1>Bienvenue !</h1>
-          <h3>
-            Ici, tu peux retrouver les moussaillons 🎓
-          </h3>
-        <%= link_to "Enregistre-toi !", '/registration/new', class: "btn btn-lg btn-primary" %>
-      </div>
-    </div>
-  </div>
+
+<div class="container-fluid align-items-stretch bg-secondary">
+<div class= "text-light  d-flex align-content-end flex-wrap ">
+<div class="center jumbotron bg-secondary">       
+  <% if @current_user.first_name %>
+    <h1>Bienvenue <%= @current_user.first_name %> !</h1>
+  <% else %>    
+    <h1>Bienvenue visiteur anonyme!</h1>
+      <h3>
+        Ici, tu peux retrouver les moussaillons 🎓
+      </h3>
+    <%= link_to "Enregistre-toi !", '/registration/new', class: "btn btn-lg btn-primary" %>
+    <%= link_to "Connecte-toi !", '/home/login', class: "btn btn-lg btn-primary" %>
+  <% end %>  
+</div>
+</div>
+</div>
+
 </body>

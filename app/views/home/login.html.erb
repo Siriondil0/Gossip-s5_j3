@@ -1,0 +1,28 @@
+<body class="bg-secondary text-light align-items-stretch ">
+	<div class="container-fluid">
+		<h3><br/>Login</h3>
+		<div class="form-row">
+
+		<%= form_for @current_user, url: "/home/login", html: {class: "col-md-6"} do |f| %>
+			
+			<div class="col-md-6">
+				<div class="form-group">
+					<%= f.label "Entrez votre email" %>
+					<%= f.text_field :email, placeholder: 'Email', class: "form-control" %>
+				</div>			
+			</div> 
+
+            <div class="col-md-6">
+				<div class="form-group">
+					<%= f.label "Entrez votre mot de passe" %>
+					<%= f.password_field :password, placeholder: 'Mot de passe', class: "form-control" %>
+				</div>			
+			</div> 
+
+			<div class="col-md-12 form-group  text-light">
+				<%= f.submit "Valider", class: "btn btn-outline-success bg-info col-md-12 align-items-stretch	text-light" %>
+			</div>
+		<% end %>
+		</div>
+	</div>
+</body>
