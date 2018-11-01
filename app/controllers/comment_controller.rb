@@ -8,7 +8,7 @@ class CommentController < ApplicationController
     if session[:user_id]
       user = User.find(session[:user_id])
     else
-      user = User.User.create!(city:City.first, first_name: "Ano", last_name: "Nimus", email: "ano.nimus@anomymus.com")
+      user = User.create!(city:City.first, first_name: "Ano", last_name: "Nimus", email: "ano.nimus@anomymus.com")
     end  
     comment = gossip.comments.create!(content: params[:comment][:content], user: user)
     url="/gossip/" + gossip.id.to_s

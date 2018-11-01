@@ -6,9 +6,9 @@ class GossipController < ApplicationController
   end
   
   def show
+    @comment = Comment.order(:id)
     @good_coms = []
     @good_gossip = Gossip.find(params[:id])
-    @comment = Comment.order(:id)
     @comment.each do |comment|
       if comment.commentable == @good_gossip
         @good_coms << comment
