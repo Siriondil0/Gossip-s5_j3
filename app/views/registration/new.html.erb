@@ -1,0 +1,51 @@
+<body class="bg-secondary text-light align-items-stretch ">
+	<div class="container-fluid">
+		<h3><br/>Veuillez vous enregistrer</h3>
+		<div class="form-row">
+
+		<%= form_for @user, url: {action: "create"}, html: {class: "col-md-6"} do |f| %>
+			
+			
+			<div class="col-md-6">
+				<div class="form-group">
+					<%= f.label "Entrez votre prénom"%>
+					<%= f.text_field :first_name, placeholder: 'Prénom', class: "form-control" %>
+				</div>			
+			</div> 
+			
+
+			<div class="col-md-6">
+				<div class="form-group">
+					<%= f.label "Entrez votre nom"%>
+					<%= f.text_field :last_name, placeholder: 'Nom', class: "form-control" %>
+				</div>			
+			</div> 
+
+			<div class="col-md-6">
+				<div class="form-group">
+					<%= f.label "Entrez votre email" %>
+					<%= f.text_field :email, placeholder: 'Email', class: "form-control" %>
+				</div>			
+			</div> 
+
+            <div class="col-md-6">
+				<div class="form-group">
+					<%= f.label "Entrez votre mot de passe" %>
+					<%= f.password_field :password, placeholder: 'Mot de passe', class: "form-control" %>
+				</div>			
+			</div> 
+
+                <div class="col-md-6">
+				<div class="form-group">
+					<%= f.label "Confirmez votre mot de passe" %>
+					<%= f.password_field :password, placeholder: 'Confirmation de mot de passe', class: "form-control" %>
+				</div>			
+			</div> 
+
+			<div class="col-md-12 form-group  text-light">
+				<%= f.submit "Valider", class: "btn btn-outline-success bg-info col-md-12 align-items-stretch	text-light" %>
+			</div>
+		<% end %>
+		</div>
+	</div>
+</body>
