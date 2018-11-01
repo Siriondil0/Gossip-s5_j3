@@ -2,19 +2,17 @@
 <%= render "shared/header" %>
 
   <body class="bg-secondary text-light d-flex align-items-stretch flex-wrap col-md-24">
-    
-    
-    <div class = "container-fluid col-md-12">
-    <div class = "row">
-  
-    <div class="container-fluid col-md-6">
-      <br/>
-      <br/>
-      <h2>Voici le potin n°<%= @good_gossip.id%></h2>
-      <p>Son auteur est <%= @good_gossip.user.first_name %> <%= @good_gossip.user.last_name %></p>
-      <p>Il a pour titre <%= @good_gossip.title %></p>
-      <p>Il contient "<%= @good_gossip.content %>"</p>
-      <p>Date de création :  <%= @good_gossip.date %></p>
+  <div class = "container-fluid col-md-12">
+  <div class = "row">
+
+    <!-- Affichage du potin -->
+    <div class="container-fluid col-md-6"><br/><br/>
+      <h2>Titre : <%= @good_gossip.title %></h2>
+      <small>Potin n°<%= @good_gossip.id%></small>
+      <small>Son auteur est <%= @good_gossip.user.first_name %> <%= @good_gossip.user.last_name %></small>
+      <small>Date de création :  <%= @good_gossip.date %></small><br/><br/>
+      <h5>#Balancetongossip : "<%= @good_gossip.content %>"</h5><br/><br/><br/>
+      
       <!-- Like -->
       <p class = flex-row>
         <%= @number_likes.count %> personne(s) ont déjà liké
@@ -31,52 +29,44 @@
           <a href="/gossip" class="card-link">Retour à l'accueil </a>
           <a href="/gossip/<%= @good_gossip.id%>/edit" class="card-link">Editer le gossip</a>
           <%= link_to 'Détruire le gossip', "@good_gossip", data: {:confirm => 'Are you sure?'}, :method => :delete %>
-        </div>
-        <br/>
-      </div>
-      <br/>
-      <br/>
+        </div><br/>
+      </div><br/><br/>
     </div>
 
-    <div class = "container-fluid col-md-6 flex-row">
-      <br/>
-      <br/>
-      <h4>Inscrivez votre commentaire ci-dessous</h3>
-		  <div class="form-row">
+   <!-- Affichage du comment -->
+    <div class = "container-fluid col-md-6 flex-row"><br/><br/>
+      <% @good_coms.each do |comment| %>
+        <div class = "card" style = "width: 100%;">
+        <div class="bg-light text-dark">
+        <div class = "card-body">
+        <h6 class = "card-text">
+          <small>Commentaire<br/>L'auteur: <%= comment.user.first_name %> <%= comment.user.last_name %></small><br/>
+          <%= comment.content %>
+        </h6><br/>
+          <p class= "flex-wrap">
+            <a href="/comment/<%= comment.id%>/edit" class="card-link"><small>Editer le commentaire ici</small></a>           
+          </p>
+        </div>
+        </div>
+        </div><br/><br/>
+      <% end %> 
+
+    <!-- Création de potin -->
+    <div class="form-group">
+      <h6>Inscrivez votre commentaire ci-dessous</h6>
 		    <%= form_for @good_comment, :url => "/comment", html: {class: "col-md-6"} do |f| %>
 			    <%=hidden_field_tag "gossip_id", @good_gossip.id%>			
-			    <div class=" form-group">
-				    <%= f.label "Le contenu de votre commentaire"%>
+			    <div class=" form-row">
 				    <%= f.text_area :content, size: "30x3", placeholder: 'Haha, super ce potin', class: "form-control" %>
-			    </div>
 
 			    <div class=" form-group  text-light">
 				    <%= f.submit "Valider", class: "btn btn-outline-success bg-info btn-block align-items-stretch	text-light" %>
 			    </div>
 		    <% end %>
-      </div>
-      </div> 
-      <% @good_coms.each do |comment| %>
-        <div class = "card" style = "width: (12rem);">
-          <div class="bg-light text-dark">
-            <div class = "card-body">
-              <h6 class = "card-text">
-                <small>L'auteur: <%= comment.user.first_name %> <%= comment.user.last_name %></small>
-                <br/>
-                <%= comment.content %>
-              </h6>
-              <br/>
-              <p class= "flex-wrap">
-                <a href="/comment/<%= comment.id%>/edit" class="card-link"><small>Editer le commentaire ici</small></a>           
-              </p>
-            </div>
-          </div>
-        </div>
-        <br/>
-      <% end %> 
     </div>
-     
+    
   </div>
   </div>
+
   </body>
 </html>
