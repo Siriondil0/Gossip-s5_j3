@@ -96,8 +96,13 @@ class GossipController < ApplicationController
 
 
   def destroy 
-    @gossip = Gossip.find(params[:id])
-    @gossip.destroy
+    if session[:user_id]
+      user = User.find(session[:user_id])
+      @gossip = Gossip.find(params[:id])
+      if user == @gossip.user
+        @gossip.destroy
+      end
+    end
     redirect_to("/gossip")
   end
   
