@@ -15,12 +15,12 @@ end
 
 15.times do
   city = City.offset(rand(City.count)).first
-  user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name  , email: Faker::Internet.email, age: rand(88), description: Faker::FamousLastWords.last_words, city_id: city.id)
+  user = User.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name  , email: Faker::Internet.email, age: rand(88), description: Faker::FamousLastWords.last_words, city_id: city.id, password: "1234")
 end
 
 25.times do
   use = User.offset(rand(User.count)).first
-  gossip = Gossip.create!(title: Faker::LordOfTheRings.character, content: Faker::Lorem.paragraph, user: use, date: Time.now)
+  gossip = Gossip.create!(title: Faker::Lovecraft.tome, content: Faker::Lovecraft.paragraph, user: use, date: Time.now)
 end
 
 10.times do
@@ -47,7 +47,7 @@ end
 end
 
 i=0
-30.times do
+50.times do
   if i==0
     use = User.offset(rand(User.count)).first
     gos = Gossip.offset(rand(Gossip.count)).first
