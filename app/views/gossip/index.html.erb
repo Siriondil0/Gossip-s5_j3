@@ -15,7 +15,10 @@
                 Ecrit par: <%= gossip.user.first_name %> <%= gossip.user.last_name %><br/>
                 Titre : <%= gossip.title%><br/>
                 Contenu : <%= gossip.content %><br/>
-                Nombre de commentaire : <%=gossip.comments.count%>
+                <small>
+                  Nombre de commentaire : <%=gossip.comments.count%><br/>
+                  Nombre de like : <%=gossip.likes.count%><br/>
+                </small>
               </p>
               <p class= "flex-wrap">
                 <a href="/gossip/<%= gossip.id %>" class="card-link">Lien vers le potin ici</a> 
