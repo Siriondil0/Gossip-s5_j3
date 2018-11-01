@@ -7,10 +7,6 @@ Rails.application.routes.draw do
   resources :gossip
   resources :home
   post '/gossip/comment', to: "comment#create"
-<<<<<<< HEAD
   patch '/comment/:id/update', to: "comment#update"
-  
-=======
   resources :comment  
->>>>>>> ced855f3d09cd08fe043ded27cebc30d6b3c1926
 end
