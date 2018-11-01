@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "home#index"
   get '/contact', to: "contact#show"  
   get '/team', to: "team#index"
+  resources :registration
   resources :gossip
   resources :home
 end

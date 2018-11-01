@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_094729) do
     t.string "email"
     t.text "description"
     t.integer "age"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_users_on_city_id"
