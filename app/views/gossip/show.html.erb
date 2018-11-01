@@ -16,15 +16,21 @@
       <p>Il contient "<%= @good_gossip.content %>"</p>
       <p>Date de création :  <%= @good_gossip.date %></p>
       <!-- Like -->
-      <p><%= @number_likes.count - 1 %> personne(s) ont déjà liké</p>
-      <%= link_to "Like", method: :post %>
+      <p class = flex-row>
+        <%= @number_likes.count %> personne(s) ont déjà liké
+        <%= form_for @good_like, :url => '/gossip/like', html: {class: "col-md-6"} do |f| %>
+			  <%=hidden_field_tag "gossip_id", @good_gossip.id%>
+        <%= f.submit "Like", class: "btn btn-outline-success bg-info text-light" %>			
+        <% end %> 
+      </p>
+      
 
       <!-- Boutons Retour à l'accueil, Editer le gossip, Détruire le gossip -->
       <div class="container-fluid col-md-12">
         <div class= "justify-content-between col-md-12" >
           <a href="/gossip" class="card-link">Retour à l'accueil </a>
           <a href="/gossip/<%= @good_gossip.id%>/edit" class="card-link">Editer le gossip</a>
-          <%= link_to 'Détruire le gossip', @good_gossip, data: {:confirm => 'Are you sure?'}, :method => :delete %>
+          <%= link_to 'Détruire le gossip', "@good_gossip", data: {:confirm => 'Are you sure?'}, :method => :delete %>
         </div>
         <br/>
       </div>

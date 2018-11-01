@@ -15,7 +15,6 @@ class GossipController < ApplicationController
       end
     end
     @good_comment = Comment.new
-    
     @number_likes = []
     @good_gossip = Gossip.find(params[:id])
     @like = Like.order(:id)
