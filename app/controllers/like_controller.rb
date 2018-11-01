@@ -6,6 +6,7 @@ class LikeController < ApplicationController
     def create 
         puts params
         gossip = Gossip.find(params[:gossip_id])
+        puts session[:user_id]
         if session[:user_id]
             like = gossip.likes.create!(user: User.find(session[:user_id]))
         end
@@ -14,7 +15,7 @@ class LikeController < ApplicationController
     end
     
     def destroy
-        @good_like = like.find(params[:id])
+        @good_like = Like.find(params[:id])
         url= @good_like.likable.id.to_s
         @good_like.destroy
         redirect_to("/gossip/"+url)

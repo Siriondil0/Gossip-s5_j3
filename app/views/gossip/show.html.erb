@@ -24,8 +24,8 @@
         <div class= "justify-content-end" >
           <% if @current_user == nil%>
             <%= link_to "Enregistre-toi pour pouvoir liker!", '/registration/new', class: "btn btn-lg btn-primary" %>
-          <% elsif @good_gossip.likes.where(user_id: session[:id]).first%>
-            <%= link_to 'Enlever le like', "@good_like", data: {:confirm => 'Êtes-vous sûr?'}, :method => :delete %>
+          <% elsif @good_gossip.likes.where( :user_id == session[:id]).first%>
+            <%= link_to 'Enlever le like', "/like/"+@good_gossip.likes.where( :user_id == session[:id]).first.id.to_s , data: {:confirm => 'Êtes-vous sûr?'}, class: "btn btn-outline-success bg-info text-light", :method => :delete %>
           <% else%>
             <%= form_for @good_like, :url => '/gossip/like', html: {class: "col-md-6"} do |f| %>
               <%=hidden_field_tag "gossip_id", @good_gossip.id%>
