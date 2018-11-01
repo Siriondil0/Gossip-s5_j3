@@ -5,7 +5,7 @@
 <div class="container-fluid align-items-stretch bg-secondary">
 <div class= "text-light  d-flex align-content-end flex-wrap ">
 <div class="center jumbotron bg-secondary">       
-  <% if @current_user.first_name %>
+  <% if @current_user %>
     <h1>Bienvenue <%= @current_user.first_name %> !</h1>
   <% else %>    
     <h1>Bienvenue visiteur anonyme!</h1>
