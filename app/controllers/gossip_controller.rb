@@ -23,12 +23,12 @@ class GossipController < ApplicationController
   end
 
   def create 
-    # if params[:gossip][:user] 
-    #   @gossip = Gossip.create!(user: params[:gossip][:user], title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
-    # else 
-    @u=User.create!(city:City.first, first_name: "Ano", last_name: "Nimus", email: "ano.nimus@anomymus.com")
+    if session[:user_id] 
+      @u = User.find(session[:user_id])
+    else 
+      @u=User.create!(city:City.first, first_name: "Ano", last_name: "Nimus", email: "ano.nimus@anomymus.com")
+    end
     @gossip = Gossip.create!(user: @u, title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
-    # end
     url="/gossip/" + @gossip.id.to_s
     redirect_to(url)
   end

@@ -20,6 +20,6 @@
 				</li>
 			</ul>
 		</div>
-		<p><%= session[:user_id]%></p>
+		<p class="text-dark"><%= User.find(session[:user_id]).first_name%></p>
 		</nav>
 </header>
