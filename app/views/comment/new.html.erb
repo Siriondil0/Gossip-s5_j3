@@ -1,0 +1,18 @@
+
+<body>
+  <div class = "container-fluid col-md-12">
+    <h3>Pour inscrire votre nouveau commentaire, veuillez le rentrer ci-dessous</h3>
+    <div class="form-row">
+      
+    <%= form_for @good_comment, url: {action: "create"}, html: {class: "col-md-6"} do |f| %>
+              
+      <div class="col-md-12 form-group">
+        <%= f.label "Le contenu de votre gossip"%>
+        <%= f.text_area :content, size: "30x3", placeholder: 'Haha, super ce gossip', class: "form-control" %>
+      </div>
+
+      <div class="col-md-12 form-group  text-light">
+        <%= f.submit "Valider", class: "btn btn-outline-success bg-info col-md-12 align-items-stretch	text-light" %>
+      </div>
+    <% end %>
+</body>

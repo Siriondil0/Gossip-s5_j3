@@ -1,0 +1,17 @@
+<%= render "shared/header" %>
+
+<body class="bg-secondary text-light d-flex align-items-stretch flex-wrap">
+	<div class="container-fluid">
+		<h3><br/>Veuillez remplir le formulaire suivant pour éditer votre commentaire</h3>
+		<%= form_for @good_comment, :url => "/comment/"+@good_comment.id.to_s, html: {class: "col-md-6"} do |f| %>	
+			    <div class=" form-group">
+				    <%= f.label "Le nouveau contenu de votre commentaire"%>
+				    <%= f.text_area :content, size: "30x3", placeholder: 'Haha, super ce potin', class: "form-control" %>
+			    </div>
+
+			    <div class=" form-group  text-light">
+				    <%= f.submit "Valider", class: "btn btn-outline-success bg-info btn-block align-items-stretch	text-light" %>
+			    </div>
+		    <% end %>
+	</div> 	
+</body>

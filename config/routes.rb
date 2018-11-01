@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root "home#index"
   get '/contact', to: "contact#show"  
   get '/team', to: "team#index"
+  resources :registration
   resources :gossip
   resources :home
+  post '/gossip/comment', to: "comment#create"
+  patch '/comment/:id/update', to: "comment#update"
+  
 end

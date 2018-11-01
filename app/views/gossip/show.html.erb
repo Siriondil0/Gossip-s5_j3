@@ -2,7 +2,8 @@
 <%= render "shared/header" %>
 
   <body class="bg-secondary text-light d-flex align-items-stretch flex-wrap col-md-24">
-    <div class="container-fluid col-md-12">
+  <div class = "container-fluid flex-wrap col-md-12">
+    <div class="container-fluid col-md-6">
       <br/>
       <h2>Voici le potin n°<%= @good_gossip.id%></h2>
       <p>Son auteur est <%= @good_gossip.user.first_name %> <%= @good_gossip.user.last_name %></p>
@@ -15,11 +16,49 @@
           <a href="/gossip/<%= @good_gossip.id%>/edit" class="card-link">Editer le gossip</a>
         </div>  
         <br/> 
-        <br/>
         <div class = " pl-5 text-warning">
           <%= link_to 'Détruire le gossip', @good_gossip, data: {:confirm => 'Are you sure?'}, :method => :delete %>
         </div>
-      <br/>
+        <br/>
       </div>
+      <br/>
+      <br/>
+    </div>
+
+    <div class = "container-fluid col-md-6 flex-row">
+      <h3>Pour inscrire votre commentaire, veuillez le rentrer ci-dessous</h3>
+		  <div class="form-row">
+		    <%= form_for @good_comment, :url => "/comment", html: {class: "col-md-6"} do |f| %>
+			    <%=hidden_field_tag "gossip_id", @good_gossip.id%>			
+			    <div class=" form-group">
+				    <%= f.label "Le contenu de votre commentaire"%>
+				    <%= f.text_area :content, size: "30x3", placeholder: 'Haha, super ce potin', class: "form-control" %>
+			    </div>
+
+			    <div class=" form-group  text-light">
+				    <%= f.submit "Valider", class: "btn btn-outline-success bg-info btn-block align-items-stretch	text-light" %>
+			    </div>
+		    <% end %>
+      </div>
+      <% @comment.each do |comment| %>
+        <div class = "card" style = "width: (12rem);">
+          <div class="bg-light text-dark">
+            <div class = "card-body">
+              <h6 class = "text-success">Comment n°: <%= comment.id%></h6>
+              <p class = "card-text">
+                L'auteur: <%= comment.user.first_name %> <%= comment.user.last_name %><br/>
+                Le contenu :<%= comment.content %>
+              </p>
+              <p class= "flex-wrap">
+                <a href="/comment/<%= comment.id%>/edit" class="card-link">Editer le commentaire ici</a>           
+              </p>
+            </div>
+          </div>
+        </div>
+        <br/>
+      <% end %> 
+      
+    </div>
+  </div>
   </body>
 </html>

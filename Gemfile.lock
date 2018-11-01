@@ -213,6 +213,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  execjs
   faker
   jbuilder (~> 2.5)
   jquery-rails

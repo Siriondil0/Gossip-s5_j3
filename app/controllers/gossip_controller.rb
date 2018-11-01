@@ -11,8 +11,8 @@ class GossipController < ApplicationController
   
   def show
     my_name_param = params[:id]
-    puts my_name_param
-    @gossip=Gossip.all
+    @comment = Comment.order(:id)
+    @good_comment = Comment.new
     @good_gossip = Gossip.find(params[:id])
   end
 
@@ -24,8 +24,8 @@ class GossipController < ApplicationController
     # if params[:gossip][:user] 
     #   @gossip = Gossip.create!(user: params[:gossip][:user], title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
     # else 
-      @u=User.create!(city:City.first, first_name: "Ano", last_name: "Nimus", email: "ano.nimus@anomymus.com")
-      @gossip = Gossip.create!(user: @u, title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
+    @u=User.create!(city:City.first, first_name: "Ano", last_name: "Nimus", email: "ano.nimus@anomymus.com")
+    @gossip = Gossip.create!(user: @u, title: params[:gossip][:title], content: params[:gossip][:content], date: Time.now)
     # end
     url="/gossip/" + @gossip.id.to_s
     redirect_to(url)
