@@ -2,7 +2,7 @@
 
 
 
-                                :smiley: :smiley: :smiley: :smiley: :smiley: :smiley: :smiley:
+                                
 
 ## Gossip-project : :jack_o_lantern:
 
@@ -21,6 +21,8 @@ On veux juste vous donner une liste de fonctionnalités que notre app devra avoi
 
 Enfin, puisque c'est toi, nous allons mettre du CSS dans le site, grâce notamment à Bootstrap.
 
+   :smiley: :smiley: :smiley: :smiley: :smiley: :smiley: :smiley:
+
 ## Lien Heroku ::jack_o_lantern:
 [Lien Gossip-project sur Heroku](https://gossip-s5-j3.herokuapp.com)
 
@@ -31,4 +33,4 @@ Enfin, puisque c'est toi, nous allons mettre du CSS dans le site, grâce notamme
 * :heavy_dollar_sign: Fayçal Meghzili   slack/  @Fays  
 
 
-                              :end: :end: :end: :end: :end: :end: :end: :end: :end:
+     :end: :end: :end: :end: :end: :end: :end: :end: :end:
