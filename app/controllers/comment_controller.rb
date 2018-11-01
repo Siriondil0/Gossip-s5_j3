@@ -29,8 +29,13 @@ class CommentController < ApplicationController
   def destroy
     @good_comment = Comment.find(params[:id])
     url= @good_comment.commentable.id.to_s
-    @good_comment.destroy
-    redirect_to("/gossip/"+url)
+    if session[:user_id]
+      user = User.find(session[:user_id])
+      if user == @good_comment.user
+        @good_comment.destroy
+      end
     end
+    redirect_to("/gossip/"+url)
+  end
 
 end
