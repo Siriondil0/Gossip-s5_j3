@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :home
   post '/gossip/comment', to: "comment#create"
   patch '/comment/:id/update', to: "comment#update"
+  post '/gossip/like', to: "like#create"
   resources :comment  
 end

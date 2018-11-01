@@ -16,6 +16,15 @@ class GossipController < ApplicationController
     end
     @good_comment = Comment.new
     
+    @number_likes = []
+    @good_gossip = Gossip.find(params[:id])
+    @like = Like.order(:id)
+    @like.each do |like|
+      if like.likable == @good_gossip
+        @number_likes << like
+      end
+    end
+    @good_like = Like.new
   end
 
   def new

@@ -15,6 +15,11 @@
       <p>Il a pour titre <%= @good_gossip.title %></p>
       <p>Il contient "<%= @good_gossip.content %>"</p>
       <p>Date de création :  <%= @good_gossip.date %></p>
+      <!-- Like -->
+      <p><%= @number_likes.count - 1 %> personne(s) ont déjà liké</p>
+      <%= link_to "Like", method: :post %>
+
+      <!-- Boutons Retour à l'accueil, Editer le gossip, Détruire le gossip -->
       <div class="container-fluid col-md-12">
         <div class= "justify-content-between col-md-12" >
           <a href="/gossip" class="card-link">Retour à l'accueil </a>
@@ -26,7 +31,7 @@
       <br/>
       <br/>
     </div>
-  
+
     <div class = "container-fluid col-md-6 flex-row">
       <br/>
       <br/>
