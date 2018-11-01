@@ -15,7 +15,7 @@ Nous allons commencer aujourd'hui par créer les premières pages :
 Enfin, puisque c'est toi, nous allons mettre du CSS dans le site, grâce notamment à Bootstrap.
 
 ## Lien Heroku :
-[Lien Gossip-project sur Heroku](https://s5j1-gossip.herokuapp.com/)
+[Lien Gossip-project sur Heroku](https://gossip-s5-j3.herokuapp.com/gossip)
 
 ## Projet de groupe :tea: :
 
