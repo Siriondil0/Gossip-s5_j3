@@ -14,4 +14,6 @@
 			    </div>
 		    <% end %>
 	</div> 	
+  <%= link_to 'Détruire le commentaire', @good_comment, data: {:confirm => 'Are you sure?'}, :method => :delete %>
+
 </body>

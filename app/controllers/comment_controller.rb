@@ -22,7 +22,10 @@ class CommentController < ApplicationController
     end
     
     def destroy
-        
+        @good_comment = Comment.find(params[:id])
+        url= @good_comment.commentable.id.to_s
+        @good_comment.destroy
+        redirect_to("/gossip/"+url)
     end
 
 end
