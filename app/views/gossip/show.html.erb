@@ -40,7 +40,7 @@
         <div class= "justify-content-between" >
           <%= link_to "Retouner à l'index", '/gossip', class: "btn btn-success" %>
           <%= link_to "Editer le gossip", '/gossip/'+@good_gossip.id.to_s+'/edit', class: "btn btn-success" %>
-          <%= link_to 'Détruire le gossip', "@good_gossip", class: "btn btn-success", data: {:confirm => 'Êtes-vous sûr?'}, :method => :delete %>
+          <%= link_to 'Détruire le gossip', @good_gossip, class: "btn btn-success", data: {:confirm => 'Êtes-vous sûr?'}, :method => :delete %>
         </div>
         <br/>
       </div>

@@ -96,9 +96,10 @@ class GossipController < ApplicationController
 
   def destroy 
     if session[:user_id]
-      user = User.find(session[:user_id])
       @gossip = Gossip.find(params[:id])
+      user = User.find(session[:user_id])
       if user == @gossip.user
+        
         @gossip.destroy
       end
     end
