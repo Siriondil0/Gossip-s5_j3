@@ -4,10 +4,6 @@ class GossipController < ApplicationController
     @gossip =Gossip.order(:id) 
 
   end
-  def index_perso
-    @my_name_param = params[:id]
-    @gossip_all = Gossip.order(:id) 
-  end
   
   def show
     @good_coms = []
