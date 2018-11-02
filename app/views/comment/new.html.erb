@@ -1,13 +1,16 @@
+<html>
+<%= render "shared/header" %>
 
-<body>
-  <div class = "container-fluid col-md-12">
+  
+  <body class="bg-secondary text-light">
+  <div class = "container-fluid col-md-12"><br/>
     <h3>Pour inscrire votre nouveau commentaire, veuillez le rentrer ci-dessous</h3>
     <div class="form-row">
       
     <%= form_for @good_comment, url: {action: "create"}, html: {class: "col-md-6"} do |f| %>
-              
+      <%=hidden_field_tag "comment_id", @comment_original.id%>     
       <div class="col-md-12 form-group">
-        <%= f.label "Le contenu de votre gossip"%>
+        <%= f.label "Le contenu de votre commentaire"%>
         <%= f.text_area :content, size: "30x3", placeholder: 'Haha, super ce gossip', class: "form-control" %>
       </div>
 
@@ -15,4 +18,5 @@
         <%= f.submit "Valider", class: "btn btn-outline-success bg-info col-md-12 align-items-stretch	text-light" %>
       </div>
     <% end %>
-</body>
+  </body>
+</html>

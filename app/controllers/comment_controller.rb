@@ -1,16 +1,26 @@
 class CommentController < ApplicationController
   def new
     @good_comment = Comment.new
+    @comment_original= Comment.find(params[:comment_id])
   end
 
   def create 
-    gossip = Gossip.find(params[:gossip_id])
     if session[:user_id]
       user = User.find(session[:user_id])
     else
       user = User.create!(city:City.first, first_name: "Ano", last_name: "Nimus", email: "ano.nimus@anomymus.com")
     end  
-    comment = gossip.comments.create!(content: params[:comment][:content], user: user)
+    if params[:gossip_id]
+      gossip = Gossip.find(params[:gossip_id])
+      new_comment = gossip.comments.create!(content: params[:comment][:content], user: user)
+    else
+      puts 'moi'
+      puts params[:comment][:comment_id]
+      puts params[:comment_id]
+      comment= Comment.find(params[:comment_id])
+      new_comment= comment.comments.create!(content: params[:comment][:content], user: user)
+      gossip = comment.commentable
+    end
     url="/gossip/" + gossip.id.to_s
     redirect_to(url)
   end

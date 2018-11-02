@@ -22,6 +22,8 @@
       </p>
       <div class="container-fluid">
         <div class= "justify-content-end" >
+        <p> 
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          
           <% if @current_user == nil%>
             <%= link_to "Enregistre-toi pour pouvoir liker!", '/registration/new', class: "btn btn-lg btn-primary" %>
           <% elsif @good_gossip.likes.where( :user_id == session[:id]).first%>
@@ -33,8 +35,8 @@
             <% end %>
         
           <% end %> 
+        </p>
         </div>
-        <br/>
 
         <!-- Boutons Retour à l'accueil, Editer le gossip, Détruire le gossip -->
         <div class= "justify-content-between" >
@@ -72,10 +74,21 @@
         <h6 class = "card-text">
           <small>Commentaire<br/>L'auteur: <%= comment.user.first_name %> <%= comment.user.last_name %></small><br/>
           <%= comment.content %>
-        </h6><br/>
-          <p class= "flex-wrap">
-            <a href="/comment/<%= comment.id%>/edit" class="card-link"><small>Editer le commentaire ici</small></a>           
+        </h6>
+        <div class="container">
+        <p class= "justify-content-between">
+          <small><a href="/comment/<%= comment.id%>/edit" class="card-link">Editer le commentaire ici</a> &nbsp;&nbsp;&nbsp;&nbsp;   
+          <%= link_to "Commenter", new_comment_path(:comment_id => comment.id) %> </small>        
+        </p>
+        </div>
+        <% comment.comments.each do |comment| %>
+          <div class = "justify-content-end">
+          <p class = "card-text ">
+            <small>Sous-commentaire<br/>L'auteur: <%= comment.user.first_name %> <%= comment.user.last_name %></small><br/>
+            <%= comment.content %>
           </p>
+          </div>
+        <% end %> 
         </div>
         </div>
         </div><br/><br/>
